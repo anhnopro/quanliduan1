@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: #f0f0f0;
+            font-size: 17px;
+        }
+
+        header {
+            height: 100px;
+            display: flex;
+            background-color: #fff !important;
+            align-items: center;
+            position: relative;
+        }
+        a {
+           text-decoration: none; 
+           color: black;
+        }
+
+        .logo {
+            width: 200px;
+            font-size: 50px;
+            margin-right: 10px;
+        }
+
+        .search {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid rgb(158, 155, 155);
+            height: 50px;
+            width: 400px;
+            border-radius: 8px;
+            margin: 50px;
+        }
+        .search button {
+            background: none; border: none;
+        }
+
+        .search input {
+            margin-left: 4px;
+            border: none;
+            height: 100%;
+            width: 100%;
+        }
+
+        .search i {
+            font-size: 20px;
+            margin: 10px;
+        }
+        .search input:focus {
+            outline: none;
+        }
+        .nav-header ul{
+            display: flex;
+            font-size: 17px;
+        }
+        .nav-header li{
+            display: flex;
+            align-items: center;
+            margin: 20px;
+            width: 120px;
+        }
+        .nav-header i {
+            margin: 5px;
+            font-size: 25px;
+            
+        }
+        
+        .form-login i {
+            font-size: 25px;
+            color: #fff;
+            margin: 10px;
+        }
+
+        .form-login{
+            display: flex;
+            align-items: center;
+            position: absolute;
+            justify-content: center;
+            right: 20px;
+            width: 150px;
+            background-color: #821818;
+            height: 70%;
+            border-radius: 10px;
+        }
+        .form-login a {
+            color: #fff;
+            width: 50px;
+        }
+
+        /* nav main */
+        .nav-main {
+            height: 50px;
+            color: #fff;
+            background: #353333;
+        }
+        .nav-main i {
+            margin: 4px;
+        }
+        .nav-main ul{
+            margin-left: 20px;
+            display: flex;
+            list-style: none;
+
+        }
+        .nav-main li {
+            display: flex;
+            align-items: center;
+            margin-right: 40px;
+        }
+        .nav-main a {
+            line-height: 50px;
+            color: #fff;
+            
+        }
+        .father-li-sp {
+            position: relative;
+        }
+        .ch-li-sp {
+            display: none !important;
+            left: 0;
+            top: 50px;
+            position: absolute;
+            background-color: #ffff;
+            flex-direction: column;
+            width: 300px;
+            padding: 10px;
+        }
+        .ch-li-sp a {
+            color: black;
+        }
+        .father-li-sp:hover .ch-li-sp  {
+            display: flex !important;
+        }
+
+        .ch-li-sp li:hover {
+            background-color: #b5b3b3;
+            width: 100%;
+            
+        }
+
+    </style>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <header>
+        <div class="logo">logo</div>
+        <form action="" method="" class="search">
+            <input type="text" placeholder="Bạn cần tìm gì?">
+            <button ><i class='bx bx-search'></i></button>
+        </form>
+        <nav class="nav-header">
+            <ul>
+                <li class="nav-hotline">
+                    <i class='bx bx-phone-call'></i>
+                    <a href="">Hotline: 0354179060</a>
+                </li>
+                <li class="info-cart">
+                    <i class='bx bx-notepad'></i>
+                    <a href="">Tra cứu đơn hàng</a> 
+                </li>
+                <li class="cart">
+                    <i class='bx bx-cart-alt'></i>
+                    <a href="">Giỏ hàng</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="form-login">
+            <i class='bx bxs-user'></i>
+            <a href="">Đăng nhập</a>
+            <a href="">Đăng ký</a>
+        </div>
+    </header>
+    <nav class="nav-main">
+        <ul>
+            <li><i class='bx bxs-user'></i><a href="">Trang chủ</a></li>
+            <li class="father-li-sp">
+                <i class='bx bxs-box'></i>
+                <a href="">Sản phẩm</a>
+                <i class='bx bxs-down-arrow'></i>
+                <ul class="ch-li-sp">
+                    <li><a href="">Laptop</a></li>
+                    <li><a href="">PC</a></li>
+                    <li><a href="">Bàn phím</a></li>
+                    <li><a href="">Chuột</a></li> 
+                </ul>
+            </li>
+            <li><i class='bx bx-news' ></i><a href="">Tin tức công nghệ</a></li>
+            <li><i class='bx bxs-user-rectangle' ></i><a href="">Giới thiệu</a></li>
+            <li><i class='bx bxs-phone-call' ></i><a href="">Liên hệ</a></li>
+            <li><i class='bx bxs-videos' ></i><a href="">Video</a></li>
+        </ul>
+    </nav>
+
+    <div class="banner-categor">
+
+    </div>
+</body>
+
+</html>

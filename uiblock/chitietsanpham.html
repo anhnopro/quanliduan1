@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+
+        body {
+            background-color: #f0f0f0;
+            font-size: 17px;
+        }
+
+        header {
+            height: 100px;
+            display: flex;
+            background-color: #fff !important;
+            align-items: center;
+            position: relative;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .logo {
+            width: 200px;
+            font-size: 50px;
+            margin-right: 10px;
+        }
+
+        .search {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid rgb(158, 155, 155);
+            height: 50px;
+            width: 400px;
+            border-radius: 8px;
+            margin: 50px;
+        }
+
+        .search button {
+            background: none;
+            border: none;
+        }
+
+        .search input {
+            margin-left: 4px;
+            border: none;
+            height: 100%;
+            width: 100%;
+        }
+
+        .search i {
+            font-size: 20px;
+            margin: 10px;
+        }
+
+        .search input:focus {
+            outline: none;
+        }
+
+        .nav-header ul {
+            display: flex;
+            font-size: 17px;
+        }
+
+        .nav-header li {
+            display: flex;
+            align-items: center;
+            margin: 20px;
+            width: 120px;
+        }
+
+        .nav-header i {
+            margin: 5px;
+            font-size: 25px;
+
+        }
+
+        .form-login i {
+            font-size: 25px;
+            color: #fff;
+            margin: 10px;
+        }
+
+        .form-login {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            justify-content: center;
+            right: 20px;
+            width: 150px;
+            background-color: #821818;
+            height: 70%;
+            border-radius: 10px;
+        }
+
+        .form-login a {
+            color: #fff;
+            width: 50px;
+        }
+
+        /* nav main */
+        .nav-main {
+            height: 50px;
+            color: #fff;
+            background: #353333;
+        }
+
+        .nav-main i {
+            margin: 4px;
+        }
+
+        .nav-main ul {
+            margin-left: 20px;
+            display: flex;
+            list-style: none;
+
+        }
+
+        .nav-main li {
+            display: flex;
+            align-items: center;
+            margin-right: 40px;
+        }
+
+        .nav-main a {
+            line-height: 50px;
+            color: #fff;
+
+        }
+
+        .father-li-sp {
+            position: relative;
+        }
+
+        .ch-li-sp {
+            display: none !important;
+            left: 0;
+            top: 50px;
+            position: absolute;
+            background-color: #ffff;
+            flex-direction: column;
+            width: 300px;
+            padding: 10px;
+        }
+
+        .ch-li-sp a {
+            color: black;
+        }
+
+        .father-li-sp:hover .ch-li-sp {
+            display: flex !important;
+        }
+
+        .ch-li-sp li:hover {
+            background-color: #b5b3b3;
+            width: 100%;
+
+        }
+
+        /* thanh điều hướng  trang  */
+        .navbar {
+            background-color: red;
+            max-width: 100%;
+            height: 30px;
+        }
+
+        .navbar a {
+            padding: 10px;
+            line-height: 30px;
+            font-size: 15px;
+            color: white;
+        }
+
+        .img-responsive {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* sản phẩm chi tiết */
+        .main {
+            max-width: 90%;
+            margin: 0 auto;
+            /* Đặt margin auto để căn giữa theo chiều ngang */
+            background-color: #f0f0f0;
+            padding: 20px;
+            /* Thêm padding để cách lề trái và phải */
+        }
+
+        .row {
+
+            background-color: white;
+            display: flex;
+
+        }
+
+        .row .rol1 {
+            float: left;
+            max-width: 40%;
+        }
+
+        .rol1 p img {
+            border: 2px solid white;
+        }
+
+        .rol1 p img:hover {
+            border: 2px solid red;
+            cursor: pointer;
+        }
+
+        .rol1 .product img {
+            width: 350px;
+            height: 300px;
+            margin-top: 40px;
+            padding-left: 100px;
+
+        }
+
+        .banner_product {
+            width: 100%;
+            padding-left: 10px;
+        }
+
+
+        .row .rol2 {
+            float: right;
+            max-width: 60%;
+            margin-top: 5px;
+
+        }
+
+        .rol2 {
+            padding-left: 150px;
+        }
+
+        .rol2 h3 {
+            margin-top: 30px;
+        }
+
+        .rol2 p {
+            font-size: 20px;
+            color: red;
+            margin-top: 25px;
+        }
+
+        .group-button {
+            margin-top: 30px;
+        }
+
+        .soluong {
+            background-color: aqua;
+            height: 25px;
+            width: 25px;
+            border: white;
+            border-radius: 5px;
+        }
+
+        .soluong1 {
+            width: 150px;
+            height: 25px;
+            border: 0.5px solid gray;
+        }
+
+        #soluong {
+            padding-left: 50px;
+        }
+
+        .buy_here {
+            margin-top: 50px;
+
+        }
+
+        .buy_here a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: red;
+            color: white;
+            text-decoration: none;
+            border: 2px solid black;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            border: white;
+
+
+        }
+
+        .buy_here a:hover {
+            background-color: darkred;
+
+        }
+
+        .content h3 {
+            color: #1ABEE2;
+            font-size: 20px;
+            margin: 20px 0 10px;
+        }
+
+        .khuyenmai {
+            background-color: white;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .khuyenmai h3 {
+            font-size: 24px;
+            margin: 10px 0;
+
+        }
+
+        .box_content {
+
+            border-left: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            min-height: 150px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .box_content p {
+            color: black;
+            font-size: 16px;
+        }
+        .box_content i{
+            color: greenyellow;
+            padding: 0 5px;
+        }
+
+        .row2 {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .mota {
+            max-width: 60%;
+            padding: 10px;
+            border: 1px solid gainsboro;
+            background-color: white;
+            min-height: 350px;
+        }
+
+        .mota h3 {
+            margin-bottom: 20px;
+        }
+
+        .tintuc {
+            max-width: 35%;
+            padding: 10px;
+            color: #333;
+            border: 1px solid gainsboro;
+            width: 500px;
+            background-color: white;
+           
+        }
+
+        .tintuc .title {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .tintuc .list_tintuc {
+            display: flex;
+            padding-bottom: 20px;
+        }
+
+        .tintuc .list_tintuc img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .binhluan {
+            margin-top: 30px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: white;
+        }
+
+        .binhluan h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .binhluan input[type="text"] {
+            width: 80%;
+            height: 40px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .binhluan button {
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .list_binhluan {
+            margin-top: 20px;
+        }
+        .list_binhluan  h3{
+            margin-bottom: 5px;
+        }
+        .list_binhluan p{
+            margin-bottom:20px ;
+        }
+         .list_binhluan p i{
+            color: yellow;
+           
+         }
+        
+         
+        .list_binhluan p:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <header>
+        <div class="logo">logo</div>
+        <form action="" method="" class="search">
+            <input type="text" placeholder="Bạn cần tìm gì?">
+            <button><i class='bx bx-search'></i></button>
+        </form>
+        <nav class="nav-header">
+            <ul>
+                <li class="nav-hotline">
+                    <i class='bx bx-phone-call'></i>
+                    <a href="">Hotline: 0354179060</a>
+                </li>
+                <li class="info-cart">
+                    <i class='bx bx-notepad'></i>
+                    <a href="">Tra cứu đơn hàng</a>
+                </li>
+                <li class="cart">
+                    <i class='bx bx-cart-alt'></i>
+                    <a href="">Giỏ hàng</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="form-login">
+            <i class='bx bxs-user'></i>
+            <a href="">Đăng nhập</a>
+            <a href="">Đăng ký</a>
+        </div>
+    </header>
+    <nav class="nav-main">
+        <ul>
+            <li><i class='bx bxs-user'></i><a href="">Trang chủ</a></li>
+            <li class="father-li-sp">
+                <i class='bx bxs-box'></i>
+                <a href="">Sản phẩm</a>
+                <i class='bx bxs-down-arrow'></i>
+                <ul class="ch-li-sp">
+                    <li><a href="">Laptop</a></li>
+                    <li><a href="">PC</a></li>
+                    <li><a href="">Bàn phím</a></li>
+                    <li><a href="">Chuột</a></li>
+                </ul>
+            </li>
+            <li><i class='bx bx-news'></i><a href="">Tin tức công nghệ</a></li>
+            <li><i class='bx bxs-user-rectangle'></i><a href="">Giới thiệu</a></li>
+            <li><i class='bx bxs-phone-call'></i><a href="">Liên hệ</a></li>
+            <li><i class='bx bxs-videos'></i><a href="">Video</a></li>
+        </ul>
+    </nav>
+
+    <section class="navbar">
+        <a href="">Trang chủ /</a> <a>PC Gaming/</a> <a>PC GVN Gaming Intel i7-13700F/ VGA RTX 4070</a>
+    </section>
+    <section class="main">
+        <section class="row">
+            <section class="rol1">
+                <div class="product">
+                    <img class="img-responsive" src="img/anh1.png" id="main_img">
+                </div>
+                <p>
+                    <img src="img/anh1.png" width="90">
+                    <img src="img/image 18.png" width="90">
+                    <img src="img/3.png" width="90">
+                    <img src="img/4.png" width="90">
+                </p>
+                <div class="banner_product">
+                    <img class="img-responsive" src="img/Rectangle 102.png">
+                </div>
+            </section>
+            <section class="rol2">
+                <h3 name="product_name">PC GVN Gaming Intel i7-13700F/ VGA RTX 4070</h3>
+                <a href="">Xem đánh giá</a>
+                <p name="price"> Giá sản phẩm: 59.0000vnđ</p>
+                <div class="group-button">
+                    <button type="button" class="soluong" onclick="thaydoisoluong('-')">-</button>
+                    <input type="tel" class="soluong1" value="1" id="soluong">
+                    <button type="button" class="soluong" onclick="thaydoisoluong('+')">+</button>
+                </div>
+                <div class="buy_here">
+                    <a href="">Mua ngay</a>
+                </div>
+                <div class="content">
+                    <p>ƯU ĐÃI KHI MUA KÈM LAPTOP</p>
+                    <h3>Ưu Đãi lên đến 30 % Khi mua kèm PC <a>xem tại đây</a></h3>
+                    <div class="khuyenmai">
+                        <h3>Khuyến mãi</h3>
+
+                    </div>
+                    <div class="box_content">
+                        <p><i class='bx bxs-check-circle'></i>Giảm ngay 300.000đ khi mua thêm RAM kèm với PC.</p>
+                        <p><i class='bx bxs-check-circle'></i>Giảm ngay 200.000đ khi mua thêm SSD kèm với PC</p>
+                        <p><i class='bx bxs-check-circle'></i>Giảm ngay 200.000đ khi mua thêm SSD kèm với PC</p>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </section>
+        <section class="row2">
+            <section class="mota">
+                <h3>Mô tả sản phẩm</h3>
+                <P>hông số kỹ thuật:
+                    Nhân đồ họa NVIDIA GeForce RTX 4090Bus tiêu chuẩnPCI Express 4.0OpenGLOpenGL 4.6Bộ nhớ Video24 GB
+                    GDDR6XXung nhịpChế độ OC: 2640 MHzChế độ mặc định: 2610 MHz (Boost Clock)Nhân CUDA16384Tốc độ bộ
+                    nhớ21 GbpsGiao thức bộ nhớ384-bitĐộ phân giảiĐộ phân giải tối đa 7680 x 4320Giao thức
+                    Có x 2 (Native HDMI 2.1)
+                    Có x 3 (Native DisplayPort 1.4a)
+                    Hỗ trợ HDCP (2.3)
+                    Số lượng màn hình tối đa hỗ trợ4Hỗ trợ NVlink/ Crossfire KhôngPhụ kiện1 x Collection Card​1 x
+                    Speedsetup Manual​1 x Adapter Cable​1 x ROG EVA Graphics Card Holder1 x ROG EVA Velcro Hook & Loop1
+                    x Thank you CardPhần mềmASUS GPU Tweak III & GeForce Game Ready Driver & Studio Driver: vui lòng tải
+                    xuống tất cả phần mềm từ trang web hỗ trợ.Kích thước357,6 x 149,3 x 70,1mmPSU
+                    kiến nghị1000WKết nối nguồn1 x 16 pinKhe cắm3.5AURA SYNCARGB</P>
+            </section>
+            <section class="tintuc">
+                <div class="title">
+                    <h3>Tin tức</h3>
+                </div>
+                <div class="list_tintuc">
+                    <img src="img/anh1.png">
+                    <p>
+                        Mô tả tin tức sản phẩm
+                    </p>
+                </div>
+                <div class="list_tintuc">
+                    <img src="img/anh1.png">
+                    <p>
+                        Mô tả tin tức sản phẩm
+                    </p>
+                </div>
+                <div class="list_tintuc">
+                    <img src="img/anh1.png">
+                    <p>
+                        Mô tả tin tức sản phẩm
+                    </p>
+                </div>
+            </section>
+
+        </section>
+        <section class="binhluan">
+            <h2>Đánh giá bình luận</h2>
+            <input type="text" placeholder="Nhập thông tin đánh giá...">
+            <button><a href="#">Gửi</a></button>
+            <div class="list_binhluan">
+                <h3><i class='bx bx-user'></i>Tên bình luận</h3>
+                <P><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star-half'></i></P>
+                <p>2023-01-01  6:48</p>
+                <P>Hàng giao nhanh, sản phẩm chất lượng, săn được giá rẻ, date còn xa, cho shop 5 sao. K thấy tặng ba lo
+                    như hình chụp</P>
+            </div>
+        </section>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script>
+        function thaydoisoluong(toantu) {
+            let luong = document.getElementById('soluong');
+            let soluong = luong.value;
+            if (toantu == '-') {
+                if (Number(soluong) > 1) {
+                    luong.value = soluong - 1;
+                }
+
+            } else if (toantu == '+') {
+                luong.value = Number(soluong) + 1;
+            } else {
+                alert('cảnh báo nguy hiểm');
+            }
+        }
+
+        $(() => {
+            $('p img').click(function () {
+                let imgPath = $(this).attr('src');
+                $('#main_img').attr('src', imgPath);
+            })
+        }) 
+    </script>
+</body>
+
+</html>

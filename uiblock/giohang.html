@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: #f0f0f0;
+            font-size: 17px;
+        }
+
+        header {
+            height: 100px;
+            display: flex;
+            background-color: #fff !important;
+            align-items: center;
+            position: relative;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .logo {
+            width: 200px;
+            font-size: 50px;
+            margin-right: 10px;
+        }
+
+        .search {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid rgb(158, 155, 155);
+            height: 50px;
+            width: 400px;
+            border-radius: 8px;
+            margin: 50px;
+        }
+
+        .search button {
+            background: none;
+            border: none;
+        }
+
+        .search input {
+            margin-left: 4px;
+            border: none;
+            height: 100%;
+            width: 100%;
+        }
+
+        .search i {
+            font-size: 20px;
+            margin: 10px;
+        }
+
+        .search input:focus {
+            outline: none;
+        }
+
+        .nav-header ul {
+            display: flex;
+            font-size: 17px;
+        }
+
+        .nav-header li {
+            display: flex;
+            align-items: center;
+            margin: 20px;
+            width: 120px;
+        }
+
+        .nav-header i {
+            margin: 5px;
+            font-size: 25px;
+
+        }
+
+        .form-login i {
+            font-size: 25px;
+            color: #fff;
+            margin: 10px;
+        }
+
+        .form-login {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            justify-content: center;
+            right: 20px;
+            width: 150px;
+            background-color: #821818;
+            height: 70%;
+            border-radius: 10px;
+        }
+
+        .form-login a {
+            color: #fff;
+            width: 50px;
+        }
+
+        /* nav main */
+        .nav-main {
+            height: 50px;
+            color: #fff;
+            background: #353333;
+        }
+
+        .nav-main i {
+            margin: 4px;
+        }
+
+        .nav-main ul {
+            margin-left: 20px;
+            display: flex;
+            list-style: none;
+
+        }
+
+        .nav-main li {
+            display: flex;
+            align-items: center;
+            margin-right: 40px;
+        }
+
+        .nav-main a {
+            line-height: 50px;
+            color: #fff;
+
+        }
+
+        .father-li-sp {
+            position: relative;
+        }
+
+        .ch-li-sp {
+            display: none !important;
+            left: 0;
+            top: 50px;
+            position: absolute;
+            background-color: #ffff;
+            flex-direction: column;
+            width: 300px;
+            padding: 10px;
+        }
+
+        .ch-li-sp a {
+            color: black;
+        }
+
+        .father-li-sp:hover .ch-li-sp {
+            display: flex !important;
+        }
+
+        .ch-li-sp li:hover {
+            background-color: #b5b3b3;
+            width: 100%;
+
+        }
+
+        /* giỏ hàng */
+        .main {
+            max-width: 90%;
+            margin: 0 auto;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .product {
+            background-color: white;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+        }
+
+        .product_main {
+            display: flex;
+            margin-bottom: 20px;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+
+        }
+
+        .product_main p {
+            padding: 0 1px;
+        }
+
+        .product_main h3 {
+            position: absolute;
+            right: 0;
+            top: 0;
+            margin-top: 0;
+        }
+
+        .suli_product_main {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            margin-top: 10px;
+        }
+
+        .suli_product_main p {
+            margin: 0;
+        }
+
+        /* Thêm CSS này */
+        .group_button {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .soluong {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            padding: 5px 10px;
+        }
+
+        .soluong1 {
+            width: 40px;
+            text-align: center;
+            font-size: 16px;
+            border: 1px solid #000;
+            margin: 0 5px;
+        }
+
+        .price {
+            font-size: 18px;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            margin-left: 10px;
+            color: #999;
+        }
+
+        .khuyenmai {
+            background-color: white;
+            padding: 10px 20px;
+        }
+
+        .title_product p {
+            margin-bottom: 5px;
+            font-size: 20px;
+        }
+
+        .title_product_list {
+            border-left: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            border-top: 1px solid #ccc;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            min-height: 150px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .title_product_list p {
+            margin-bottom: 10px;
+        }
+
+        .title_product_list i {
+            color: red;
+        }
+
+        .title_product_list h3 {
+            margin-bottom: 5px;
+        }
+
+        .title_product_list h3 span {
+            color: rgb(75, 75, 226);
+            padding: 10px;
+
+        }
+
+        .tilte_pay .pay {
+            border-left: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            border-top: 1px solid #ccc;
+
+            background-color: red;
+            padding: 10px 10px;
+            color: white;
+            font-size: 20px;
+        }
+
+        .deltail_pay {
+            border-left: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            border-top: 1px solid #ccc;
+            padding: 10px 20px;
+        }
+
+        .deltail_pay h3 {
+            margin-bottom: 20px;
+        }
+
+        .deltail_pay p i {
+            color: red;
+            padding: 20px;
+        }
+
+        .form_main {
+            margin-top: 20px;
+            background-color: white;
+            padding: 10px 30px;
+        }
+
+        .form_main h3,
+        input,
+        select {
+            margin-bottom: 20px;
+        }
+
+        .form_main select {
+            padding: 5px 10px;
+        }
+
+        .form_main textarea {
+            padding: 20px 0;
+            font-size: 15px;
+        }
+
+        #hoten,
+        #dienthoai,
+        #email {
+            width: 300px;
+            height: 50px;
+            border-radius: 5px;
+            border: 0.2px solid black;
+            padding: 10px;
+        }
+
+        #diachi {
+            width: 910px;
+            height: 50px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 0.2px solid black;
+        }
+
+        .thanhtoan {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding:10px 20px;
+            margin-top: 20px;
+            background-color: white;
+        }
+
+        
+
+        .giatien p,
+        .xacnhangia p {
+            margin: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+        }
+
+        .giatien p span,
+        .xacnhangia p span {
+            margin-left: 10px;
+            padding: 0px 50px;
+        }
+        .xacnhangia p {
+            margin-bottom: 20px;
+        }
+        .xacnhangia a{
+            padding: 10px 100px;
+            background-color: red;
+            border-radius: 20px;
+        }
+        @media only screen and(min_width:46.25em) and (max_width : 63.973em){
+           .product{
+            flex-direction: column;
+           }
+           .product_main p{
+            width: 100%;
+           }
+        }
+    </style>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <header>
+        <div class="logo">logo</div>
+        <form action="" method="" class="search">
+            <input type="text" placeholder="Bạn cần tìm gì?">
+            <button><i class='bx bx-search'></i></button>
+        </form>
+        <nav class="nav-header">
+            <ul>
+                <li class="nav-hotline">
+                    <i class='bx bx-phone-call'></i>
+                    <a href="">Hotline: 0354179060</a>
+                </li>
+                <li class="info-cart">
+                    <i class='bx bx-notepad'></i>
+                    <a href="">Tra cứu đơn hàng</a>
+                </li>
+                <li class="cart">
+                    <i class='bx bx-cart-alt'></i>
+                    <a href="">Giỏ hàng</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="form-login">
+            <i class='bx bxs-user'></i>
+            <a href="">Đăng nhập</a>
+            <a href="">Đăng ký</a>
+        </div>
+    </header>
+    <nav class="nav-main">
+        <ul>
+            <li><i class='bx bxs-user'></i><a href="">Trang chủ</a></li>
+            <li class="father-li-sp">
+                <i class='bx bxs-box'></i>
+                <a href="">Sản phẩm</a>
+                <i class='bx bxs-down-arrow'></i>
+                <ul class="ch-li-sp">
+                    <li><a href="">Laptop</a></li>
+                    <li><a href="">PC</a></li>
+                    <li><a href="">Bàn phím</a></li>
+                    <li><a href="">Chuột</a></li>
+                </ul>
+            </li>
+            <li><i class='bx bx-news'></i><a href="">Tin tức công nghệ</a></li>
+            <li><i class='bx bxs-user-rectangle'></i><a href="">Giới thiệu</a></li>
+            <li><i class='bx bxs-phone-call'></i><a href="">Liên hệ</a></li>
+            <li><i class='bx bxs-videos'></i><a href="">Video</a></li>
+        </ul>
+    </nav>
+
+    <section class="main">
+        <section class="title">
+            <h2>Có 1 sản phẩm trong giỏ hàng</h2>
+        </section>
+        <section class="product">
+            <div class="product_main">
+                <img src="img/5.png">
+                <P>Điện thoại di động Samsung Galaxy A23 5G Đen - A236</P>
+                <div class="group_button">
+                    <p>Số lượng</p>
+                    <button type="button" class="soluong" onclick="thaydoisoluong('-')">-</button>
+                    <input type="tel" class="soluong1" value="1" id="soluong">
+                    <button type="button" class="soluong" onclick="thaydoisoluong('+')">+</button>
+                </div>
+
+                <h3>Xóa sản phẩm</h3>
+                <div class="suli_product_main">
+                    <p>10.380.000đ</p>
+                    <p> <span class="original-price">21.000.00đ</span></p>
+                </div>
+            </div>
+        </section>
+        <section class="khuyenmai">
+            <div class="title_product">
+                <p>Khuyến mãi theo sản phẩm</p>
+                <div class="title_product_list">
+                    <P><i class='bx bxs-check-circle'></i>Giảm 800,000đ</P>
+                    <h3>Tặng máy ép chậm Kalite trị giá 3.000.000đ<span>Xem chi tiết</span></h3>
+                    <p>Không áp dụng đồng thời với các khuyến mãi sau:</p>
+                    <P>- Giảm ngay 800,000đ</P>
+                </div>
+            </div>
+            <div class="tilte_pay">
+                <div class="pay">
+                    <p>Khuyến mãi theo đơn hàng</p>
+                </div>
+
+                <div class="deltail_pay">
+                    <h3>Khuyến mãi tặng kèm</h3>
+                    <P><i class='bx bxs-coupon'></i>Trả góp 0% trả trước từ 0đ qua Samsung Finance+ áp dụng tại 67 cửa
+                        hàng.</P>
+                    <P><i class='bx bxs-coupon'></i>Thu cũ đổi mới trợ giá ngay 15% đến 2 triệu (MintPro)</P>
+                    <p><i class='bx bxs-coupon'></i>Dịch vụ - Sim - Mã ưu đãi 100,000đ mua Sim MobiFone Chất Chơi 1T</p>
+                </div>
+
+            </div>
+        </section>
+        <section class="form_main">
+            <form action="" method="post">
+                <h3>Chọn hình thức nhận hàng</h3>
+                <input type="radio" name="tannoi" id="tannoi">
+                <label for="tannoi">Giao hàng tận nơi</label>
+                <input type="radio" name="cuahang" id="cuahang">
+                <label for="cuahang">Nhận tại cửa hàng</label>
+                <h3>Thông tin người đặt</h3>
+                <input type="text" name="hoten" placeholder="Họ Và Tên" id="hoten">
+                <input type="text" name="sodienthoai" placeholder="Số điện thoại" id="dienthoai">
+                <input type="text" name="sodienthoai" placeholder="Email" id="email"><br>
+                <input type="text" name="diachi" placeholder="Địa chỉ nhận hàng" id="diachi">
+                <div>
+                    <h3>Thời gian giao hàng</h3>
+                    <select>
+                        <option>Tất cả các ngày trong tuần</option>
+                        <option>Chỉ giao hàng trong giờ hành chính</option>
+                    </select>
+
+                </div>
+                <textarea style="width: 910px; height: 70px;" >
+                    Thêm ghi chú (Ví dụ: Gọi trước khi giao dịch)
+            </textarea>
+            </form>
+        </section>
+        <section class="thanhtoan">
+            <div class="giatien">
+                <p>Tổng tiền: <span>11.980.000đ</span></p>
+                <p>Giảm giá khuyến mãi: <span>-1.600.000đ</span></p>
+                <p>Giảm giá voucher:<span>0đ</span></p>
+            </div>
+            <div class="xacnhangia">
+                <p>Cần thanh toán (2 sản phẩm):<span>10.380.000đ</span></p>
+                <a href="">Hoàn tất đặt hàng</a>
+            </div>
+        </section>
+    </section>
+    <script>
+        function thaydoisoluong(toantu) {
+            let luong = document.getElementById('soluong');
+            let soluong = luong.value;
+            if (toantu == '-') {
+                if (Number(soluong) > 1) {
+                    luong.value = soluong - 1;
+                }
+
+            } else if (toantu == '+') {
+                luong.value = Number(soluong) + 1;
+            } else {
+                alert('cảnh báo nguy hiểm');
+            }
+        }
+    </script>
+</body>
+
+</html>
